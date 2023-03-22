@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Inter', sans-serif;
+
+        }
+
+        #menu {
+            width: 400px;
+            height: 300px;
+            border: 1px solid #EDF1D6;
+            background-color: #9DC08B;
+            margin-top: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .clock {
+            margin-bottom: 50px;
+        }
+
+        .clock>div {
+            display: inline;
+            padding: 10px;
+            background-color: #EDF1D6;
+            color: #40513B;
+
+        }
+
+        #date,
+        #day,
+        #year {
+            border: 1px solid #EDF1D6;
+            background-color: #EDF1D6;
+            padding: 10px;
+            display: inline;
+        }
+
+        .son {
+            position: absolute;
+            align-self: flex-end;
+            justify-self: end;
+            top: 265px;
+            font-size: 14px;
+        }
+        
+.material-symbols-outlined {
+    color:#40513B;
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 300,
+  'GRAD' 0,
+  'opsz' 48
+}
+    </style>
+</head>
+
+<body>
+    <main id="menu">
+        <div class="clock">
+            <div><span id="hour"></span></div>
+            <span>:</span>
+            <div><span id="minute"></span></div>
+            <span>:</span>
+            <div><span id="second"></span></div>
+            <div><span id="period"></span></div>
+        </div>
+        <div class="dates">
+            <p id="date"></p>
+            <p id="day"></p>
+            <p id="year"></p>
+        </div>
+        <div class="son">coded<span class="material-symbols-outlined">
+            spa
+            </span> by Tuğba  </div>
+    </main>
+
+
+
+
+    <script>
+
+        function digitalClock() {
+            let dateTime = new Date();
+            let hour = dateTime.getHours();
+            let min = dateTime.getMinutes();
+            let sec = dateTime.getSeconds();
+            let date = dateTime.getDate();
+            let month = dateTime.getMonth();
+            let year = dateTime.getFullYear();
+
+            let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec']
+
+            document.getElementById("hour").innerHTML = hour;
+            document.getElementById("minute").innerHTML = min;
+            document.getElementById("second").innerHTML = sec;
+            document.getElementById("date").innerHTML = date;
+            document.getElementById("day").innerHTML = months[month];
+            document.getElementById("year").innerHTML = year;
+            let period = document.getElementById("period");
+
+            if (hour >= 12) {
+                period.innerHTML = "PM";
+            } else {
+                period.innerHTML = "AM";
+            }
+
+
+
+        }
+
+
+        setInterval(digitalClock, 100)
+
+
+
+
+    </script>
+</body>
+
+</html>
